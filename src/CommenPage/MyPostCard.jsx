@@ -52,18 +52,21 @@ const MyPostCard = ({ post, handlerDeletes }) => {
     
 
     return (
-        <div className='flex gap-10 border items-center p-4'>
-            <div className='flex-1'>
-                <img src={photo} alt="" />
+        <div className='flex flex-col md:flex-row gap-6 border shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 '>
+            <div className=''>
+                <img src={photo} alt="" className='w-full md:w-48 h-64 object-cover rounded-lg ' />
             </div>
-            <div className='flex-1'>
-                <p>name:{name}</p>
-                <p>name:{price}</p>
-                <p>name:{description}</p>
-                <div>
-                    <button onClick={() => handlerDelete(_id)}><RiDeleteBin2Line /></button>
+            <div className='flex flex-col justify-between flex-grow'>
+                <div className="space-y-2">
+
+                    <p> <span className='text-2xl font-serif'>Services Name</span>: {name}</p>
+                    <p> <span className='text-2xl font-serif'>Price</span> :{price}</p>
+                    <p> <span className='text-2xl font-serif'>Description</span> Description:{description}</p>
+                </div>
+                <div className='flex gap-5'>
+                    <button className='btn rounded-full  hover:bg-pink-400 hover:text-white' onClick={() => handlerDelete(_id)}><RiDeleteBin2Line /></button>
                     <Link to={`/update/${_id}`} state={{ post }}> 
-                        <button><CiEdit /></button>
+                        <button className='btn rounded-full  hover:bg-pink-400 hover:text-white'><CiEdit /></button>
                     </Link>
 
                 </div>
@@ -73,4 +76,3 @@ const MyPostCard = ({ post, handlerDeletes }) => {
 };
 
 export default MyPostCard;
-

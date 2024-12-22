@@ -17,7 +17,7 @@ const PopulerService = () => {
     }
     return (
         <div>
-            PopulerService ---------------{services.length}
+           
             <div>
                 <DynamicTitle title={'kisumisu'} subtitle={'klrjglsjfdgkjfhsdgkhf'}></DynamicTitle>
             </div>

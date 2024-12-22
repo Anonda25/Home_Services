@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-
+import logo from '../assets/creative-logo.avif'
 const Navbar = () => {
-    const { name, user, SingOut } = useContext(AuthContext);
+    const { user, SingOut } = useContext(AuthContext);
     const [photoURL, setPhotoURL] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -82,7 +82,7 @@ const Navbar = () => {
                             </ul>
                         )}
                     </li>
-                    
+
                 </>
             )}
         </>
@@ -115,7 +115,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Home Repair Services</a>
+                <div className='flex items-center '>
+                    <img src={logo} alt="" className='w-10 h-10 rounded-full' />
+                    <a className="btn">Home Repair Services</a>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu gap-3 menu-horizontal px-1 ">{links}</ul>
