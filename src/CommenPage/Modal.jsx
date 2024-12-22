@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Modal = ({ service, onClose }) => {
     const {user}=useContext(AuthContext)
@@ -26,19 +27,19 @@ const Modal = ({ service, onClose }) => {
             serviceStatus: 'pending',
         };
 
-        // try {
-        //     await axios.post(`${import.meta.env.VITE_API_URL}/bookings`, bookingDetails);
-        //     alert('Service booked successfully!');
-        //     onClose();
-        // } catch (error) {
-        //     console.error('Error booking service:', error);
-        //     alert('Failed to book the service. Please try again.');
-        // }
+        try {
+            await axios.post(`${import.meta.env.VITE_API_URL}/serviceStatus`, bookingDetails);
+            
+            onClose();
+        } catch (error) {
+            console.error('Error booking service:', error);
+            Swal.error('Failed to book the service. Please try again.');
+        }
     };
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white rounded-lg p-6 w-96">
+            <div className="bg-white rounded-lg p-6 ">
                 <h3 className="text-xl font-bold mb-4">Book Service</h3>
                 <p className="mb-2"><strong>Service ID:</strong> {service._id}</p>
                 <p className="mb-2"><strong>Service Name:</strong> {service.name}</p>

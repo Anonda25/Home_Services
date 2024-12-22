@@ -8,7 +8,6 @@ const SingleServiceDetails = () => {
     const [service, setService] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    console.log(service);
     useEffect(() => {
         fetchServiceDetails();
     }, []);
@@ -28,18 +27,28 @@ const SingleServiceDetails = () => {
 
     return (
         <div className="container mx-auto px-4">
+            <div>
+                datinamice title
+            </div>
             {service ? (
                 <>
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                        {/* Service Image */}
-                        <img
-                            src={service.photo}
-                            alt={service.name}
-                            className="w-full h-60 object-cover"
-                        />
+                    <div className="bg-white rounded-lg border-2 p-2 overflow-hidden flex items-center justify-center">
+                       <div className='p-5 '>
+                            {/* Service Image */}
+                            <img
+                                src={service.photo}
+                                alt={service.name}
+                                className="w-full h-full"
+                            />
+                       </div>
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4">{service.name}</h2>
-                            <p className="text-gray-600 mb-4">{service.description}</p>
+                            {/* <p className="text-gray-600 mb-4">{service.description}</p> */}
+                            <p className="text-gray-600 mb-4">
+                                {service.description.length > 100
+                                    ? `${service.description.substring(0, 100)}...`
+                                    : service.description}
+                            </p>
                             <div className="flex items-center mb-4">
                                 <img
                                     src={service?.photo}

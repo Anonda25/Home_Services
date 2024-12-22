@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import addingLogo from '../assets/adding.webp'
+import Swal from 'sweetalert2';
 
 const AddService = () => {
     const { user } = useContext(AuthContext)
@@ -14,6 +15,14 @@ const AddService = () => {
         const photo = form.photo.value;
         const description = form.description.value;
 
+        if (description.length < 100) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Description Too Short',
+                text: 'Description must be at least 100 characters long.',
+            });
+            return;
+        }
         const service = {
             name,
             buyer: {

@@ -18,12 +18,16 @@ const ManageService = () => {
         setMypost(data)
         
     }
+    const handlerDelete=(id)=>{
+        console.log(id); 
+        setMypost((mypost) => mypost.filter((post) => post._id !== id))
+    }
     return (
         <div>
             ManageService =({mypost.length})
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
+            <div className='grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-5 '>
                 {
-                    mypost.map(post => <MyPostCard key={post._id} post={post}></MyPostCard>)
+                    mypost.map(post => <MyPostCard key={post._id} post={post} handlerDeletes={handlerDelete}></MyPostCard>)
                 }
             </div>
 
