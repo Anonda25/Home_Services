@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, provider)
     }
+    //sign out
     const SingOut = ()=>{
         return signOut(auth)
     }

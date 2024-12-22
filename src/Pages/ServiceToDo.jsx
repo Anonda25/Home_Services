@@ -20,6 +20,7 @@ const ServiceToDo = () => {
     };
 
     const updateServiceStatus = async (serviceId, newStatus) => {
+        //updating the servicesStatus frist
         setServices(prevServices =>
             prevServices.map(service =>
                 service._id === serviceId ? { ...service, serviceStatus: newStatus } : service

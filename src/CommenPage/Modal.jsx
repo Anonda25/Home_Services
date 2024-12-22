@@ -44,16 +44,16 @@ const Modal = ({ service, onClose }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white rounded-lg p-6 ">
                 <h3 className="text-xl font-bold mb-4">Book Service</h3>
-                <p className="mb-2"><strong>Service ID:</strong> {service._id}</p>
-                <p className="mb-2"><strong>Service Name:</strong> {service.name}</p>
-                <p className="mb-2"><strong>Provider Email:</strong> {buyer.email}</p>
-                <p className="mb-2"><strong>Provider Name:</strong> {buyer.name}</p>
-                <p className="mb-2"><strong>Your Email:</strong> {currentUser.email}</p>
-                <p className="mb-2"><strong>Your Name:</strong> {currentUser.displayName}</p>
-                <p className="mb-2"><strong>Price:</strong> ${service.price}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Service ID:</span > {service._id}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Service Name:</span > {service.name}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Provider Email:</span > {buyer.email}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Provider Name:</span > {buyer.name}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Your Email:</span > {currentUser.email}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Your Name:</span > {currentUser.displayName}</p>
+                <p className="mb-2"><span  className='text-xl font-semibold'>Price:</span > ${service.price}</p>
                 {/* Editable Fields */}
                 <label className="block mb-2">
-                    <span>Service Taking Date:</span>
+                    <span className=' font-semibold'>Service Taking Date:</span>
                     <input
                         type="date"
                         className="w-full border rounded p-2"

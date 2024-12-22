@@ -1,18 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import DynamicTitle from '../CommenPage/DynamicTitle';
 import ServicesCard from '../Components/ServicesCard';
 
 const AllServicesPage = () => {
     const [services, setservise] = useState([])
+    const [search, setSearch] = useState("")
     useEffect(() => {
         fatchAllService()
-    }, [])
+    }, [search])
 
-    console.log(services);
+    console.log(search);
     const fatchAllService = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/services`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/services/?sherchprams=${search}`)
         setservise(data);
     }
     return (
@@ -25,7 +25,9 @@ const AllServicesPage = () => {
 
                 </div>
                 <label className="input input-bordered flex items-center gap-2">
-                    <input type="text" className="grow" placeholder="Search" />
+                    <input
+                        onChange={(e) => setSearch(e.target.value)}
+                        type="text" name="search" className="grow" placeholder="Search" />
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"

@@ -8,7 +8,7 @@ const ServicesCard = ({ service }) => {
             key={service._id}
             className="bg-white  overflow-hidden border  h-full "
         >
-            <div className='flex-1 p-5'>
+            <div className='flex-1 p-5 h-64'>
                 {/* Service Image */}
                 <img
                     src={service?.photo}
@@ -53,4 +53,3 @@ const ServicesCard = ({ service }) => {
 };
 
 export default ServicesCard;
-

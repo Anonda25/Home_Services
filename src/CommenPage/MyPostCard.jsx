@@ -62,7 +62,7 @@ const MyPostCard = ({ post, handlerDeletes }) => {
                 <p>name:{description}</p>
                 <div>
                     <button onClick={() => handlerDelete(_id)}><RiDeleteBin2Line /></button>
-                    <Link to={`/update/${_id}`} state={{ post }}> {/* Passing post data through state */}
+                    <Link to={`/update/${_id}`} state={{ post }}> 
                         <button><CiEdit /></button>
                     </Link>
 

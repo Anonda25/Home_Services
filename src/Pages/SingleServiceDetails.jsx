@@ -43,7 +43,6 @@ const SingleServiceDetails = () => {
                        </div>
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4">{service.name}</h2>
-                            {/* <p className="text-gray-600 mb-4">{service.description}</p> */}
                             <p className="text-gray-600 mb-4">
                                 {service.description.length > 100
                                     ? `${service.description.substring(0, 100)}...`

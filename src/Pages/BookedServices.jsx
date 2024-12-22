@@ -59,9 +59,7 @@ const BookedServices = () => {
                                         </td>
                                         <td>{service.serviceStatus}</td>
                                         
-                                        {/* <th>
-                                            <button className="btn btn-ghost btn-xs">details</button>
-                                        </th> */}
+                                        
                                     </tr>)
                                 }
                                 
