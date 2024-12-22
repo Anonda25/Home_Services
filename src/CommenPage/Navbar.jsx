@@ -82,7 +82,7 @@ const Navbar = () => {
                             </ul>
                         )}
                     </li>
-                    <NavLink to={'/profile'}>Profile</NavLink>
+                    <NavLink to={'/allservices'}>All Services</NavLink>
                 </>
             )}
         </>
@@ -115,7 +115,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Assignment {name}</a>
+                <a className="btn btn-ghost text-xl">Home Repair Services</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu gap-3 menu-horizontal px-1 ">{links}</ul>

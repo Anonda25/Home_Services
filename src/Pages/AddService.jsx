@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import axios from 'axios';
+import addingLogo from '../assets/adding.webp'
 
 const AddService = () => {
     const { user } = useContext(AuthContext)
-    const handlerAddService = (e) => {
+    const handlerAddService = async (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -12,26 +14,30 @@ const AddService = () => {
         const photo = form.photo.value;
         const description = form.description.value;
 
-        const services = {
+        const service = {
             name,
-            buyer:{
-                email:user.email,
-                name:user.displayName,
-                photo:user.photoURL
+            buyer: {
+                email: user.email,
+                name: user.displayName,
+                photo: user.photoURL
             },
+
             price,
             area,
             photo,
             description
         };
-        console.log(services);
-
+        console.log(service);
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/services`, service)
+        console.log(data);
 
     };
 
     return (
         <div className="flex flex-col lg:flex-row">
-            <div className="flex-1">this site is an image</div>
+            <div className="flex-1">
+                <img src={addingLogo} alt="" />
+            </div>
             <div className="flex-1">
                 <form onSubmit={handlerAddService} className="card-body">
                     {/* Add Service Name */}
@@ -50,7 +56,7 @@ const AddService = () => {
 
                     <div className="flex gap-3">
                         {/* Add Price */}
-                        <div className="form-control">
+                        <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
@@ -64,7 +70,7 @@ const AddService = () => {
                         </div>
 
                         {/* Add Service Area */}
-                        <div className="form-control">
+                        <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">Service Area</span>
                             </label>

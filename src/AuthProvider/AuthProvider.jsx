@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-
+    const [loading, setLoading]=useState(true)
     const userRegister = (email, password, name, photo) => {
         return createUserWithEmailAndPassword(auth, email, password, name, photo)
     }
@@ -21,11 +21,13 @@ const AuthProvider = ({ children }) => {
     // user Login
 
     const userLogin = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     // user GoogleLogin
 
     const GoogleLogin = ()=>{
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
     const SingOut = ()=>{
@@ -34,7 +36,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-        name: 'ananda',
+        loading,
         userLogin,
         userRegister,
         GoogleLogin,
@@ -47,7 +49,7 @@ const AuthProvider = ({ children }) => {
             } else {
                 setUser(null);
             }
-            // setLoading(false)
+            setLoading(false)
         });
         return () => {
             unsubcribe();

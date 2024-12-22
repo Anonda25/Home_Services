@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import loginImg from '../../src/assets/register.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Register = () => {
+    const navigate = useNavigate()
     const { userRegister, GoogleLogin }=useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState("");
     const handelRegister=(e)=>{
