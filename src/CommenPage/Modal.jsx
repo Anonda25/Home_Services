@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Modal = ({ service, onClose }) => {
     const {user}=useContext(AuthContext)
-    const currentUser = user; // Replace with actual user data
+    const currentUser = user; 
+    const navigate = useNavigate()
     const [date, setDate] = useState('');
     const [instructions, setInstructions] = useState('');
     console.log(service);
@@ -15,22 +17,23 @@ const Modal = ({ service, onClose }) => {
     const handlePurchase = async () => {
         const bookingDetails = {
             serviceId: service._id,
-            serviceName: service.name,
-            serviceImage: service.photo,
-            providerEmail: buyer.email,
-            providerName: buyer.name,
-            userEmail: currentUser.email,
+            name: service.name,
+            photo: service.photo,
+            buyer: buyer.email,
+            buyerName: buyer.name,
+            email: currentUser.email,
             userName: currentUser.displayName,
             serviceDate: date,
-            specialInstructions: instructions,
+            description: instructions,
             price: service.price,
             serviceStatus: 'pending',
         };
 
         try {
             await axios.post(`${import.meta.env.VITE_API_URL}/serviceStatus`, bookingDetails);
-            
+            navigate('/bookedServices')
             onClose();
+            
         } catch (error) {
             console.error('Error booking service:', error);
             Swal.error('Failed to book the service. Please try again.');

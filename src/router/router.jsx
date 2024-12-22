@@ -9,11 +9,11 @@ import Register from "../Pages/Register";
 import AddService from "../Pages/AddService";
 import ManageService from "../Pages/ManageService";
 import BookedServices from "../Pages/BookedServices";
-import Services from "../Pages/Services";
 import AllServicesPage from "../Pages/AllServicesPage";
 import SingleServiceDetails from "../Pages/SingleServiceDetails";
 import PrivetRoute from "../AuthProvider/PrivetRoute";
 import UpdateServicePage from "../Pages/UpdateServicePage";
+import ServiceToDo from "../Pages/ServiceToDo";
 
 const router = createBrowserRouter([
     {
@@ -30,10 +30,6 @@ const router = createBrowserRouter([
                 element: <PrivetRoute><AddService></AddService></PrivetRoute>
             },
             {
-                path:'/services',
-                element:<Services></Services>
-            },
-            {
                 path:'/allservices',
                 element:<AllServicesPage></AllServicesPage>
             },
@@ -48,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path:'/bookedServices',
                 element: <PrivetRoute><BookedServices></BookedServices></PrivetRoute>
+            },
+            {
+                path:'/servicetodo',
+                element: <PrivetRoute><ServiceToDo></ServiceToDo></PrivetRoute>
             },
             {
                 path:'/update/:id',

@@ -29,7 +29,7 @@ const Navbar = () => {
     const links = (
         <>
             <NavLink to={'/'}>Home</NavLink>
-            <NavLink to={'/services'}>Services</NavLink>
+            <NavLink to={'/allservices'}>All Services</NavLink>
             {user && (
                 <>
                     <li className="relative">
@@ -72,7 +72,7 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <NavLink
-                                        to={'/dashboard/service-to-do'}
+                                        to={'/servicetodo'}
                                         className="block px-4 py-2 hover:bg-gray-100"
                                         onClick={() => setIsDropdownOpen(false)}
                                     >
@@ -82,7 +82,7 @@ const Navbar = () => {
                             </ul>
                         )}
                     </li>
-                    <NavLink to={'/allservices'}>All Services</NavLink>
+                    
                 </>
             )}
         </>
