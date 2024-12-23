@@ -1,11 +1,10 @@
-import axios from 'axios';
 import React from 'react';
 import { CiEdit } from 'react-icons/ci';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
-
+import { motion } from 'motion/react';
 const MyPostCard = ({ post, handlerDeletes }) => {
     const axiosSecure = UserAxiosSecure()
     const { _id, photo, name, price, description, buyer } = post
@@ -53,7 +52,18 @@ const MyPostCard = ({ post, handlerDeletes }) => {
     
 
     return (
-        <div className='flex flex-col md:flex-row gap-6 border shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 '>
+        <motion.div 
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={
+                { y: 0, opacity: 1 }}
+            transition={{
+                delay: 0.2,
+                y: { type: "spring", stiffness: 60 },
+                opacity: { duration: 0.2 },
+                ease: "easeIn",
+                duration: 1
+            }} 
+        className='flex flex-col md:flex-row gap-6 border shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 '>
             <div className=''>
                 <img src={photo} alt="" className='w-full  h-64 object-cover rounded-lg ' />
             </div>
@@ -73,7 +83,7 @@ const MyPostCard = ({ post, handlerDeletes }) => {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

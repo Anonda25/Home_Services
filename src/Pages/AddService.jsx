@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import addingLogo from '../assets/adding.webp'
 import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
-
+import { motion } from 'motion/react';
 const AddService = () => {
     const axiosSecure = UserAxiosSecure()
     const { user } = useContext(AuthContext)
@@ -37,9 +37,31 @@ const AddService = () => {
     return (
         <div className="flex flex-col lg:flex-row">
             <div className="flex-1">
-                <img src={addingLogo} alt="" />
+                <motion.img 
+                    initial={{ x: -100, opacity: 0 }}
+                    whileInView={
+                        { x: 0, opacity: 1 }}
+                    transition={{
+                        delay: 0.2,
+                        x: { type: "spring", stiffness: 60 },
+                        opacity: { duration: 0.2 },
+                        ease: "easeIn",
+                        duration: 1
+                    }}
+                src={addingLogo} alt="" />
             </div>
-            <div className="flex-1">
+            <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={
+                    { x: 0, opacity: 1 }}
+                transition={{
+                    delay: 0.2,
+                    x: { type: "spring", stiffness: 60 },
+                    opacity: { duration: 0.2 },
+                    ease: "easeIn",
+                    duration: 1
+                }}
+            className="flex-1">
                 <form onSubmit={handlerAddService} className="card-body">
                     {/* Add Service Name */}
                     <div className="form-control">
@@ -119,7 +141,7 @@ const AddService = () => {
                         </button>
                     </div>
                 </form>
-            </div>
+            </motion.div>
         </div>
     );
 };

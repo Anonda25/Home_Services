@@ -2,6 +2,7 @@
 import PopulerService from "../Components/PopulerService";
 import Banner from "../CommenPage/Banner";
 import Card from "../Components/Card";
+import RequestCard from "../Components/RequestCard";
 
 
 const Home = () => {
@@ -12,6 +13,9 @@ const Home = () => {
           <PopulerService></PopulerService>
           <div>
             <Card></Card>
+          </div>
+          <div>
+            <RequestCard></RequestCard>
           </div>
         </div>
     );

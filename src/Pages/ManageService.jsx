@@ -27,13 +27,13 @@ const ManageService = () => {
     }
     return (
         <div>
-            ManageService =({mypost.length})
+            
             <div>
-                <DynamicTitle title={'my posted card '} subtitle={'there is a post of my all work'}>
+                <DynamicTitle title={'my posted card '} subtitle={'I have a page here to get all the work done'}>
 
                 </DynamicTitle>
             </div>
-            <div className='grid grid-cols-1   lg:grid-cols-2 gap-5 '>
+            <div className='grid grid-cols-1   lg:grid-cols-2 gap-5 mt-10 '>
                 {
                     mypost.map(post => <MyPostCard key={post._id} post={post} handlerDeletes={handlerDelete}></MyPostCard>)
                 }

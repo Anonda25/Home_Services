@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import img from '../assets/addings.gif'
-
+import { motion } from 'motion/react';
 const UpdateServicePage = () => {
     const { state } = useLocation();
     const { post } = state ;  
@@ -34,9 +34,27 @@ const UpdateServicePage = () => {
         <div className="flex flex-col lg:flex-row">
             
             <div className='flex-1'>
-                <img src={img} alt="" />
+                <motion.img initial={{ x: -100, opacity: 0 }}
+                    whileInView={
+                        { x: 0, opacity: 1 }}
+                    transition={{
+                        delay: 0.2,
+                        x: { type: "spring", stiffness: 60 },
+                        opacity: { duration: 0.2 },
+                        ease: "easeIn",
+                        duration: 1
+                    }} src={img} alt="" />
             </div>
-            <div className='flex-1'>
+            <motion.div initial={{x: 100, opacity: 0 }}
+                whileInView={
+                    { x: 0, opacity: 1 }}
+                transition={{
+                    delay: 0.2,
+                    x: { type: "spring", stiffness: 60 },
+                    opacity: { duration: 0.2 },
+                    ease: "easeIn",
+                    duration: 1
+                }} className='flex-1'>
                 <form>
                     <label className="block mb-2">
                         Service Name :
@@ -81,7 +99,7 @@ const UpdateServicePage = () => {
                         </button>
                     </div>
                 </form>
-            </div>
+            </motion.div>
         </div>
     );
 };

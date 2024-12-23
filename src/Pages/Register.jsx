@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from "motion/react"
 import loginImg from '../../src/assets/register.png'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -51,7 +52,16 @@ const Register = () => {
     return (
         <div className='lg:flex-row flex-col flex justify-between'>
 
-            <div className='flex-1'>
+            <motion.div initial={{ x: -100, opacity: 0 }}
+                whileInView={
+                    { x: 0, opacity: 1 }}
+                transition={{
+                    delay: 0.2,
+                    x: { type: "spring", stiffness: 60 },
+                    opacity: { duration: 1 },
+                    ease: "easeIn",
+                    duration: 1
+                }} className='flex-1'>
                 <form onSubmit={handelRegister} className="card-body mt-24">
                     <div className="divider"><span className='text-4xl font-bold'>Register Now</span></div>
                     <div className="form-control ">
@@ -89,9 +99,18 @@ const Register = () => {
                     </div>
                     
                 </form>
-            </div>
+            </motion.div>
             <div className='flex-1 flex justify-center items-center'>
-                <img src={loginImg} alt="" />
+                <motion.img initial={{ x: 100, opacity: 0 }}
+                    whileInView={
+                        { x: 0, opacity: 1 }}
+                    transition={{
+                        delay: 0.2,
+                        x: { type: "spring", stiffness: 60 },
+                        opacity: { duration: 1 },
+                        ease: "easeIn",
+                        duration: 1
+                    }} src={loginImg} alt="" />
             </div>
         </div>
     );
