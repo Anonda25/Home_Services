@@ -1,8 +1,9 @@
-import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Noservices from '../assets/service-Un.jpg'
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 const ServiceToDo = () => {
+    const axiosSecure = UserAxiosSecure()
     const [services, setServices] = useState([]);
     const { user } = useContext(AuthContext)
     const userEmail = user?.email;
@@ -14,7 +15,7 @@ const ServiceToDo = () => {
 
     const fetchServices = async () => {
 
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/serviceStatus/${userEmail}?buyer=true`)
+        const { data } = await axiosSecure.get(`/serviceStatus/${userEmail}?buyer=true`)
         setServices(data)
 
     };
@@ -28,7 +29,7 @@ const ServiceToDo = () => {
         );
 
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL}/serviceStatus/${serviceId}`, {
+            await axiosSecure.put(`/serviceStatus/${serviceId}`, {
                 serviceStatus: newStatus,
             });
             setServices(prevServices =>

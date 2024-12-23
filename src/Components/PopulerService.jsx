@@ -1,18 +1,18 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ServicesCard from './ServicesCard';
 import DynamicTitle from '../CommenPage/DynamicTitle';
 import { Link } from 'react-router-dom';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 
 const PopulerService = () => {
+    const axiosSecure =UserAxiosSecure()
     const [services, setservise] = useState([])
     useEffect(() => {
         fatchAllService()
     }, [])
 
-    console.log(services);
     const fatchAllService = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/services`)
+        const { data } = await axiosSecure.get(`/services`)
         setservise(data);
     }
     return (

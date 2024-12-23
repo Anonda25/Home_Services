@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+button {
+  background-color: transparent; 
+  color: #d58eff;
+  border: 2px solid #d58eff;
+  border-radius: 20px; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+button:hover {
+  background-color: #d58eff; 
+  color: #fff; 
+}

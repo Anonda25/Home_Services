@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DynamicTitle from '../CommenPage/DynamicTitle';
 import ServicesCard from '../Components/ServicesCard';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 
 const AllServicesPage = () => {
+    const axiosSecure =UserAxiosSecure()
     const [services, setservise] = useState([])
     const [search, setSearch] = useState("")
     useEffect(() => {
@@ -12,7 +14,8 @@ const AllServicesPage = () => {
 
     console.log(search);
     const fatchAllService = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/services/?sherchprams=${search}`)
+        const { data } = await axiosSecure.get(`/services/?sherchprams=${search}`)
+        
         setservise(data);
     }
     return (

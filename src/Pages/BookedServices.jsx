@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 const BookedServices = () => {
+    const axiosSecure =UserAxiosSecure()
     const [services, setservise] = useState([])
     const { user } = useContext(AuthContext)
     const userEmail = user?.email;
@@ -12,10 +14,9 @@ const BookedServices = () => {
 
     console.log(services);
     const fatchAllService = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/serviceStatus/${userEmail}`)
-        const userServices = data.filter(service => service.email === userEmail);
-        setservise(userServices);
-        
+        const { data } = await axiosSecure.get(`/serviceStatus/${userEmail}`)
+        setservise(data);
+
     }
     return (
         <div className="container mx-auto p-4">
@@ -35,16 +36,16 @@ const BookedServices = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                               
+
                                 {
                                     services.map(service => <tr key={service._id}>
 
                                         <td>
                                             <div className="flex items-center gap-3">
-                                               
+
                                                 <div>
                                                     <div className="font-bold">{service?.name}</div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </td>
@@ -52,29 +53,29 @@ const BookedServices = () => {
                                             {service.serviceDate}
                                         </td>
                                         <td>
-                                           $ {service.price}
+                                            $ {service.price}
                                         </td>
                                         <td>
                                             {service?.buyer}
                                         </td>
                                         <td>{service.serviceStatus}</td>
-                                        
-                                        
+
+
                                     </tr>)
                                 }
-                                
+
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>
-               
+
             ) : (
                 <div className="text-gray-500 text-center mt-8">
-                        <p> You haven't booked any services yet. Browse our services to get started!</p>
-                        <Link to={'/allservices'}>
+                    <p> You haven't booked any services yet. Browse our services to get started!</p>
+                    <Link to={'/allservices'}>
                         <button className='btn'>all Services</button>
-                        </Link>
+                    </Link>
                 </div>
             )}
         </div>

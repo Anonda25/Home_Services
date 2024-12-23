@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServicesCard = ({ service }) => {
-    console.log(service);
     return (
         <div
             key={service._id}
@@ -18,7 +17,7 @@ const ServicesCard = ({ service }) => {
             </div>
             {/* Service Details */}
             <div className="space-y-3 p-3  ">
-                <h3 className="text-xl font-bold mb-2">{service.name}</h3>
+                <p className="text-xl font-bold mb-2 ">{service.name}</p>
                 <p className="text-gray-600 mb-4">
                     {service.description.length > 100
                         ? `${service.description.substring(0, 100)}...`
@@ -29,11 +28,11 @@ const ServicesCard = ({ service }) => {
                     <div className="flex items-center">
                         <img
                             src={service?.buyer?.photo}
-                            alt={service.providerName}
+                            alt={service?.buyer?.name}
                             className="w-10 h-10 rounded-full mr-2"
                         />
-                        <span className="text-gray-800 font-medium">
-                            {service.name}
+                        <span className="text-gray-500 font-medium">
+                            {service?.buyer?.name}
                         </span>
                     </div>
                     {/* Service Price */}
@@ -43,7 +42,7 @@ const ServicesCard = ({ service }) => {
                 <p className="text-gray-600 mb-4">Area: {service.area}</p>
                 {/* View Details Button */}
                 <Link to={`/services/${service._id}`}>
-                    <button className="bg-blue-500 text-white py-2 px-4 rounded-lg w-full hover:bg-blue-600">
+                    <button className="  py-2 px-4 rounded-lg w-full ">
                         View Details
                     </button>
                 </Link>

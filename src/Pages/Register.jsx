@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import loginImg from '../../src/assets/register.jpg'
+import loginImg from '../../src/assets/register.png'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
@@ -90,7 +90,7 @@ const Register = () => {
                     
                 </form>
             </div>
-            <div className='flex-1'>
+            <div className='flex-1 flex justify-center items-center'>
                 <img src={loginImg} alt="" />
             </div>
         </div>

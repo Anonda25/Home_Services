@@ -4,9 +4,10 @@ import { CiEdit } from 'react-icons/ci';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 
 const MyPostCard = ({ post, handlerDeletes }) => {
-    console.log(post);
+    const axiosSecure = UserAxiosSecure()
     const { _id, photo, name, price, description, buyer } = post
 
 
@@ -24,7 +25,7 @@ const MyPostCard = ({ post, handlerDeletes }) => {
             if (result.isConfirmed) {
 
                 try {
-                    const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/services/${id}`)
+                    const { data } = await axiosSecure.delete(`/services/${id}`)
                     console.log(data);
                     if (data.deletedCount > 0) {
                         Swal.fire({
@@ -54,14 +55,15 @@ const MyPostCard = ({ post, handlerDeletes }) => {
     return (
         <div className='flex flex-col md:flex-row gap-6 border shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 '>
             <div className=''>
-                <img src={photo} alt="" className='w-full md:w-48 h-64 object-cover rounded-lg ' />
+                <img src={photo} alt="" className='w-full  h-64 object-cover rounded-lg ' />
             </div>
             <div className='flex flex-col justify-between flex-grow'>
-                <div className="space-y-2">
+                <div className="">
 
                     <p> <span className='text-2xl font-serif'>Services Name</span>: {name}</p>
                     <p> <span className='text-2xl font-serif'>Price</span> :{price}</p>
-                    <p> <span className='text-2xl font-serif'>Description</span> Description:{description}</p>
+                    {/* <p className=' w-3/4 mx-auto '> <span className='text-2xl font-serif'>{description}</span> Description:</p> */}
+                    <p className='overflow-hidden text-ellipsis max-h-16 w-80'><span className='text-2xl font-serif'>Description</span>:{description}</p>
                 </div>
                 <div className='flex gap-5'>
                     <button className='btn rounded-full  hover:bg-pink-400 hover:text-white' onClick={() => handlerDelete(_id)}><RiDeleteBin2Line /></button>

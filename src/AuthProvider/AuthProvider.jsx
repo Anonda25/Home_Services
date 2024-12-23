@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import auth from '../firebage/firebage.confige';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import axios from "axios";
 // import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
 
 
@@ -13,8 +14,13 @@ export const AuthContext = createContext();
 const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loading, setLoading]=useState(true)
+    const [loading, setLoading] = useState(true)
+
+
+
+    // user register 
     const userRegister = (email, password, name, photo) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password, name, photo)
     }
 
@@ -26,12 +32,12 @@ const AuthProvider = ({ children }) => {
     }
     // user GoogleLogin
 
-    const GoogleLogin = ()=>{
+    const GoogleLogin = () => {
         setLoading(true)
         return signInWithPopup(auth, provider)
     }
     //sign out
-    const SingOut = ()=>{
+    const SingOut = () => {
         return signOut(auth)
     }
 
@@ -45,19 +51,36 @@ const AuthProvider = ({ children }) => {
     }
     useEffect(() => {
         const unsubcribe = onAuthStateChanged(auth, (correntUser) => {
-            if (correntUser) {
-                setUser(correntUser);
+
+            setUser(correntUser);
+
+            if (correntUser?.email) {
+                const user = { email: correntUser.email }
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log('login token', res.data);
+                        setLoading(false)
+                    })
             } else {
-                setUser(null);
+
+                axios.post('http://localhost:5000/logout', {}, {
+                    withCredentials: true
+                })
+                    .then(res => {
+                        console.log('logout token', res.data);
+                        setLoading(false)
+                    })
             }
-            setLoading(false)
+
+
+
         });
         return () => {
             unsubcribe();
         };
 
     }, []);
-    
+
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

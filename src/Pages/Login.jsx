@@ -1,9 +1,12 @@
 import React from 'react';
-import loginImg from '../../src/assets/sign-in.jpg'
+import loginImg from '../../src/assets/Login-logo.png'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 const Login = () => {
+    const axiosSecure = UserAxiosSecure()
     const navigate = useNavigate()
     const { userLogin, GoogleLogin } = useContext(AuthContext)
     const handelLogin = (e) => {
@@ -16,7 +19,12 @@ const Login = () => {
         userLogin(email, password)
             .then(result => {
                 console.log(' user login in success', result.user);
-                navigate('/')
+                const user = {email : email}
+                axiosSecure.post('/jwt', user)
+                .then(data =>{
+                    console.log(data.data);
+                    // navigate('/')
+                })
             })
             .catch(error => {
                 console.log(error.message);
@@ -37,7 +45,7 @@ const Login = () => {
     return (
         <div className='lg:flex-row flex-col flex justify-between'>
             <div >
-                <img src={loginImg} alt="" />
+                <img src={loginImg} alt="" className='' />
             </div>
             <div className='flex-1'>
                 <form onSubmit={handelLogin} className="card-body mt-24">

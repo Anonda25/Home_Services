@@ -2,9 +2,11 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import MyPostCard from '../CommenPage/MyPostCard';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 
 const ManageService = () => {
     const {user}=useContext(AuthContext)
+    const axiosSecure =UserAxiosSecure()
     console.log(user?.email);
     const [mypost, setMypost] = useState([]);
 
@@ -14,7 +16,7 @@ const ManageService = () => {
     },[user])
 
     const fecththeEamil= async()=>{
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/services/email/${user?.email}`)
+        const { data } = await axiosSecure.get(`/services/email/${user?.email}`)
         setMypost(data)
         
     }
