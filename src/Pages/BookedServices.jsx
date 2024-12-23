@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
+import DynamicTitle from '../CommenPage/DynamicTitle';
 const BookedServices = () => {
     const axiosSecure =UserAxiosSecure()
     const [services, setservise] = useState([])
@@ -20,7 +21,10 @@ const BookedServices = () => {
     }
     return (
         <div className="container mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4 text-center">My Booked Services</h2>
+            
+            <div>
+                <DynamicTitle title={"My Booked Services"} ></DynamicTitle>
+            </div>
             {services.length > 0 ? (
                 <div>
                     <div className="overflow-x-auto">

@@ -19,16 +19,16 @@ const PopulerService = () => {
         <div>
            
             <div>
-                <DynamicTitle title={'kisumisu'} subtitle={'klrjglsjfdgkjfhsdgkhf'}></DynamicTitle>
+                <DynamicTitle title={'this is populer servicess card '} subtitle={'Connect with trusted experts for all your home needs, from minor fixes to major renovations. Enjoy seamless booking, transparent pricing, and reliable support—all designed to make home care effortless and stress-free. Whether it’s plumbing, electrical work, cleaning, or appliance installation, our platform'}></DynamicTitle>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='grid lg:grid-cols-2  gap-4'>
                 {
                     services.slice(0, 6).map(service => <ServicesCard key={service._id} service={service}></ServicesCard>)
                 }
             </div>
 
-            <Link to={'/allservices'} className='flex items-center justify-center'>
-                <button className='btn btn-accent '>show All services</button>
+            <Link to={'/allservices'} className='flex items-center justify-center my-5'>
+                <button >show All services</button>
             </Link>
         </div>
     );

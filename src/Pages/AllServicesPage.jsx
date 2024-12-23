@@ -21,7 +21,7 @@ const AllServicesPage = () => {
     return (
 
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 mt-3">
             <div className='flex'>
                 <div className="divider divider-secondary w-full">
                     <p>All Services</p>
@@ -46,7 +46,7 @@ const AllServicesPage = () => {
             <div>
                 <DynamicTitle title={'this is a all services page'} subtitle={'We provide your all required handyman services into your location'}></DynamicTitle>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  mt-10 mb-10">
+            <div className="grid grid-cols-1  gap-8  mt-10 mb-10">
                 {
                     services.map((service) => <ServicesCard key={service._id} service={service}></ServicesCard>)
                 }

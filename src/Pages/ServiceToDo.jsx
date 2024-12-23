@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Noservices from '../assets/service-Un.jpg'
 import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
+import DynamicTitle from '../CommenPage/DynamicTitle';
 const ServiceToDo = () => {
     const axiosSecure = UserAxiosSecure()
     const [services, setServices] = useState([]);
@@ -45,7 +46,9 @@ const ServiceToDo = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4">Services To Do</h2>
+            <div>
+                <DynamicTitle title={" my To Do Services"}></DynamicTitle>
+            </div>
             {services.length > 0 ? (
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -74,7 +77,6 @@ const ServiceToDo = () => {
                                     </td>
                                     <td>
                                         $ {service.price}
-
                                     </td>
                                     <td>
                                         <select

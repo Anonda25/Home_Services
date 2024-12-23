@@ -1,15 +1,18 @@
-import { useState } from "react";
+
 import PopulerService from "../Components/PopulerService";
 import Banner from "../CommenPage/Banner";
+import Card from "../Components/Card";
 
 
 const Home = () => {
 
     return (
         <div>
-          <p> this is a home page </p>
           <Banner></Banner>
           <PopulerService></PopulerService>
+          <div>
+            <Card></Card>
+          </div>
         </div>
     );
 };
