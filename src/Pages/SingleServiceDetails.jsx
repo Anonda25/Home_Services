@@ -45,10 +45,11 @@ const SingleServiceDetails = () => {
                        </div>
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4">{service.name}</h2>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 mb-4 ">
                                 {service.description.length > 100
                                     ? `${service.description.substring(0, 100)}...`
                                     : service.description}
+                                    
                             </p>
                             <div className="flex items-center mb-4">
                                 <img
@@ -64,7 +65,7 @@ const SingleServiceDetails = () => {
                             <p className="text-blue-500 font-bold text-xl mb-4">${service.price}</p>
                             {/* Book Now Button */}
                             <button
-                                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                                className=" py-2 px-4 rounded-lg "
                                 onClick={handleBookNow}
                             >
                                 Book Now
@@ -80,7 +81,9 @@ const SingleServiceDetails = () => {
                     )}
                 </>
             ) : (
-                <p>Loading service details...</p>
+                    <div  className='flex justify-center items-center'>
+                        <span className="loading loading-bars loading-lg"></span>
+                    </div>
             )}
         </div>
     );

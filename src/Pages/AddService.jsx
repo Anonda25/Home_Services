@@ -4,6 +4,7 @@ import addingLogo from '../assets/adding.webp'
 import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const AddService = () => {
     const navigate = useNavigate()
     const axiosSecure = UserAxiosSecure()
@@ -16,6 +17,14 @@ const AddService = () => {
         const area = form.area.value;
         const photo = form.photo.value;
         const description = form.description.value;
+        if (description.length < 100) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Description Too Short',
+                text: 'Description must be at least 100 characters long.',
+            });
+            return;
+        }
 
         const service = {
             name,
