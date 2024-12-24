@@ -8,6 +8,7 @@ const ServiceToDo = () => {
     const [services, setServices] = useState([]);
     const { user } = useContext(AuthContext)
     const userEmail = user?.email;
+    console.log(userEmail);
     console.log(services);
     useEffect(() => {
         fetchServices();
