@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import Modal from '../CommenPage/Modal';
 import DynamicTitle from '../CommenPage/DynamicTitle';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 
 const SingleServiceDetails = () => {
     const { id } = useParams();
+    const axiosSecure = UserAxiosSecure()
     const [service, setService] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,7 +16,7 @@ const SingleServiceDetails = () => {
 
     const fetchServiceDetails = async () => {
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/services/${id}`);
+            const { data } = await axiosSecure.get(`/services/${id}`);
             setService(data);
         } catch (error) {
             console.error('Error fetching service details:', error);
@@ -39,7 +40,7 @@ const SingleServiceDetails = () => {
                             <img
                                 src={service.photo}
                                 alt={service.name}
-                                className="w-full h-full"
+                                className="w-[300px] h-[300px]"
                             />
                        </div>
                         <div className="p-6">

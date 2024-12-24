@@ -3,9 +3,11 @@ import axios from 'axios';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 
 const Modal = ({ service, onClose }) => {
     const {user}=useContext(AuthContext)
+    const axiosSecure = UserAxiosSecure()
     const currentUser = user; 
     const navigate = useNavigate()
     const [date, setDate] = useState('');
@@ -30,13 +32,13 @@ const Modal = ({ service, onClose }) => {
         };
 
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/serviceStatus`, bookingDetails);
+            await axiosSecure.post(`/serviceStatus`, bookingDetails);
             navigate('/bookedServices')
             onClose();
             
         } catch (error) {
             console.error('Error booking service:', error);
-            Swal.error('Failed to book the service. Please try again.');
+            Swal.fire('Failed to book the service. Please try again.');
         }
     };
 

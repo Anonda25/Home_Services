@@ -5,18 +5,18 @@ const ServicesCard = ({ service }) => {
     return (
         <div
             key={service._id}
-            className=" overflow-hidden shadow-xl  rounded-md   "
+            className=" overflow-hidden shadow-xl flex justify-center   rounded-md   "
         >
             <div className=' p-5  '>
-                {/* Service Image */}
+                {/* Service Image  here */}
                 <img
                     src={service?.photo}
                     alt={service.name}
-                    className=" transition-transform duration-300 ease-in-out hover:scale-90  w-full bg-cover  object-cover"
+                    className=" transition-transform duration-300 ease-in-out hover:scale-90  w-full bg-cover h-[200px]  "
                 />
             </div>
             {/* Service Details */}
-            <div className="space-y-3 p-3  ">
+            <div className=" justify-center flex flex-col ">
                 <p className="text-xl font-bold mb-2 ">{service.name}</p>
                 <p className="text-gray-600 mb-4">
                     {service.description.length > 100
