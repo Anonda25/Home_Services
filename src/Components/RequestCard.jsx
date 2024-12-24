@@ -75,14 +75,14 @@ const RequestCard = () => {
                                 <label className="label">
                                     <span className="label-text">Choose Service*</span>
                                 </label>
-                                {/* <select className="select select-bordered w-full bg-gray-100 border-none rounded-none" required>
-                                    <option disabled selected>
+                                <select defaultValue={'DEFAULT'} className="select select-bordered w-full bg-gray-100 border-none rounded-none" required>
+                                    <option value={'DEFAULT'} disabled>
                                         Select a service
                                     </option>
-                                    <option>Plumbing Solutions</option>
-                                    <option>Roofing Solutions</option>
-                                    <option>Carpentry Solutions</option>
-                                </select> */}
+                                    <option value={'1'} >Plumbing Solutions</option>
+                                    <option value={'2'} >Roofing Solutions</option>
+                                    <option value={'3'} >Carpentry Solutions</option>
+                                </select>
                             </div>
                         </div>
 
