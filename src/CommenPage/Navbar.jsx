@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import logo from '../assets/creative-logo.avif'
+import './Navber.css'
 const Navbar = () => {
     const { user, SingOut } = useContext(AuthContext);
     const [photoURL, setPhotoURL] = useState('');

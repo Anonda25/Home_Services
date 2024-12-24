@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Modal from '../CommenPage/Modal';
+import DynamicTitle from '../CommenPage/DynamicTitle';
 
 const SingleServiceDetails = () => {
     const { id } = useParams();
@@ -28,7 +29,7 @@ const SingleServiceDetails = () => {
     return (
         <div className="container mx-auto px-4">
             <div>
-                datinamice title
+                <DynamicTitle title={'this is a single cards Detelis'} subtitle={'If you want to book this page, press the book Now button.'}></DynamicTitle>
             </div>
             {service ? (
                 <>

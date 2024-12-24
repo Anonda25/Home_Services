@@ -7,12 +7,12 @@ const ServicesCard = ({ service }) => {
             key={service._id}
             className=" overflow-hidden shadow-xl  rounded-md   "
         >
-            <div className=' p-5 h-96 '>
+            <div className=' p-5  '>
                 {/* Service Image */}
                 <img
                     src={service?.photo}
                     alt={service.name}
-                    className=" transition-transform duration-300 ease-in-out hover:scale-110 h-full w-full bg-cover  object-cover"
+                    className=" transition-transform duration-300 ease-in-out hover:scale-90  w-full bg-cover  object-cover"
                 />
             </div>
             {/* Service Details */}
