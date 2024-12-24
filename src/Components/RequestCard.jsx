@@ -102,7 +102,7 @@ const RequestCard = () => {
                         </div>
 
 
-                        <button className=" w-full md:w-auto">
+                        <button className=" w-full ">
                             Submit
                         </button>
                     </form>

@@ -4,7 +4,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import img from '../assets/addings.gif'
 import { motion } from 'motion/react';
+import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 const UpdateServicePage = () => {
+    const axiosSecure = UserAxiosSecure()
     const { state } = useLocation();
     const { post } = state ;  
     const navigate = useNavigate();
@@ -17,7 +19,7 @@ const UpdateServicePage = () => {
 
     const handleUpdate = async () => {
         try {
-            const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/services/${post._id}`, formData);
+            const { data } = await axiosSecure.patch(`/services/${post._id}`, formData);
             if (data.modifiedCount > 0) {
                 Swal.fire("Updated!", "Service updated successfully.", "success");
                 navigate('/manageService'); 

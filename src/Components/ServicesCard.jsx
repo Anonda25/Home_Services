@@ -5,7 +5,7 @@ const ServicesCard = ({ service }) => {
     return (
         <div
             key={service._id}
-            className=" overflow-hidden shadow-xl flex justify-center   rounded-md   "
+            className=" overflow-hidden shadow-xl mb-5 p-5 flex flex-col lg:flex-row justify-center   rounded-md   "
         >
             <div className=' p-5  '>
                 {/* Service Image  here */}

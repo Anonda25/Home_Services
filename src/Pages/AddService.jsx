@@ -3,7 +3,9 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import addingLogo from '../assets/adding.webp'
 import UserAxiosSecure from '../AuthProvider/UserAxiosSecure';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 const AddService = () => {
+    const navigate = useNavigate()
     const axiosSecure = UserAxiosSecure()
     const { user } = useContext(AuthContext)
     const handlerAddService = async (e) => {
@@ -30,7 +32,11 @@ const AddService = () => {
         };
         
         const { data } = await axiosSecure.post(`/services`, service)
+       if(data){
+           navigate('/allservices')
+       }else{
         console.log(data);
+       }
 
     };
 
@@ -127,7 +133,7 @@ const AddService = () => {
                             <span className="label-text">Description</span>
                         </label>
                         <textarea
-                            placeholder="Description"
+                            placeholder="Please type a minimum Description (15)"
                             name="description"
                             className="textarea textarea-bordered textarea-md w-full"
                             required

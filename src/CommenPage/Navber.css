@@ -1,6 +1,15 @@
-.active{
-    background-color: aqua;
-   font-size: 1rem;
-   padding: 3px 6px;
-   border-radius: 100px;
+.active {
+  background-color: transparent; 
+  color: #d58eff;
+  border: 2px solid #d58eff;
+  border-radius: 20px; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.active:hover {
+  background-color: #d58eff; 
+  color: #fff; 
 }
