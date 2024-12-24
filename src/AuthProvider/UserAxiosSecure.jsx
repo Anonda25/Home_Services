@@ -20,9 +20,9 @@ const UserAxiosSecure = () => {
             console.log('error ', error.response);
             if (error.response.status === 401 || error.response.status === 403) {
                 //logout 
-                // SingOut()
+                SingOut()
                 //navigate
-                // navigate('/login')
+                navigate('/login')
             }
         })
     },[SingOut, navigate])
