@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DynamicTitle from '../CommenPage/DynamicTitle';
 import ServicesCard from '../Components/ServicesCard';

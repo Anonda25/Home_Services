@@ -75,14 +75,14 @@ const RequestCard = () => {
                                 <label className="label">
                                     <span className="label-text">Choose Service*</span>
                                 </label>
-                                <select className="select select-bordered w-full bg-gray-100 border-none rounded-none" required>
+                                {/* <select className="select select-bordered w-full bg-gray-100 border-none rounded-none" required>
                                     <option disabled selected>
                                         Select a service
                                     </option>
                                     <option>Plumbing Solutions</option>
                                     <option>Roofing Solutions</option>
                                     <option>Carpentry Solutions</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
 
