@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 const Banner = () => {
     return (
         <div className=" ">
-            <div className='flex justify-between  items-center '>
+            <div className='flex justify-between flex-col-reverse lg:flex-row  items-center '>
                 <motion.div
                     initial={{ x: -100, opacity: 0 }}
                     viewport={{ once: true }}

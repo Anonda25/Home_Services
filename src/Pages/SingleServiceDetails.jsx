@@ -34,7 +34,7 @@ const SingleServiceDetails = () => {
             </div>
             {service ? (
                 <>
-                    <div className=" rounded-lg  p-2 overflow-hidden flex items-center justify-center">
+                    <div className=" rounded-lg  p-2 overflow-hidden flex flex-col lg:flex-row items-center justify-center">
                        <div className='p-5 '>
                             {/* Service Image */}
                             <img
@@ -47,7 +47,7 @@ const SingleServiceDetails = () => {
                             <h2 className="text-2xl font-bold mb-4">{service.name}</h2>
                             <p className="text-gray-600 mb-4 ">
                                 {service.description.length > 100
-                                    ? `${service.description.substring(0, 100)}...`
+                                    ? `${service.description.substring(0, 40)}...`
                                     : service.description}
                                     
                             </p>

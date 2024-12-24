@@ -92,7 +92,7 @@ const AddService = () => {
                         />
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-col lg:flex-row">
                         {/* Add Price */}
                         <div className="form-control flex-1">
                             <label className="label">
