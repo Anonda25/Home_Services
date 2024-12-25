@@ -23,7 +23,7 @@ const Login = () => {
                 axiosSecure.post('/jwt', user)
                 .then(data =>{
                     console.log(data.data);
-                    // navigate('/')
+                    navigate('/')
                 })
             })
             .catch(error => {
