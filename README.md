@@ -52,4 +52,4 @@ THE HOME SERVICES
 
 **Live Website**
 
- Home Service App Live : https://homerepier.netlify.app/
+ Home Service App Live : https://home-services1.netlify.app/
