@@ -45,7 +45,7 @@ const AllServicesPage = () => {
             <div>
                 <DynamicTitle title={'this is a all services page'} subtitle={'We provide your all required handyman services into your location'}></DynamicTitle>
             </div>
-            <div className="grid grid-cols-1  gap-8  mt-10 mb-10">
+            <div className="grid grid-cols-3  gap-8  mt-10 mb-10">
                 {
                     services.map((service) => <ServicesCard key={service._id} service={service}></ServicesCard>)
                 }

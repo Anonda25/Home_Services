@@ -29,7 +29,7 @@ const Card = () => {
                     <p className='text-xl font-semibold'>5 Service Per Month</p>
                     <p className='text-xl font-semibold'> Up comming New  service</p>
                     <p className='text-xl font-semibold'>No services Bonuses</p>
-                    <button>Percess Now</button>
+                   
                 </motion.div>
                 <motion.div initial={{ y: 100, opacity: 0 }}
                     whileInView={
@@ -47,7 +47,7 @@ const Card = () => {
                     <p className='text-xl font-semibold'>20  Service Per Month</p>
                     <p className='text-xl font-semibold'> 15 Up Comming service</p>
                     <p className='text-xl font-semibold'> Priority Support</p>
-                    <button>Percess Now</button>
+                    
                 </motion.div>
                 <motion.div initial={{ y: 100, opacity: 0 }}
                     whileInView={
@@ -65,7 +65,7 @@ const Card = () => {
                     <p className='text-xl font-semibold'>12  Service Per Month</p>
                     <p className='text-xl font-semibold'> One New service</p>
                     <p className='text-xl font-semibold'> Priority Support</p>
-                    <button>Percess Now</button>
+                   
                 </motion.div>
               
                 

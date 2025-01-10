@@ -63,17 +63,17 @@ const MyPostCard = ({ post, handlerDeletes }) => {
                 ease: "easeIn",
                 duration: 1
             }} 
-        className='flex flex-col md:flex-row gap-6 border shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 '>
+        className=' gap-6 border shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 '>
             <div className=''>
                 <img src={photo} alt="" className='w-full  h-64 object-cover rounded-lg ' />
             </div>
             <div className='flex flex-col justify-between flex-grow'>
                 <div className="">
 
-                    <p> <span className='text-2xl font-serif'>Services Name</span>: {name}</p>
-                    <p> <span className='text-2xl font-serif'>Price</span> :{price}</p>
+                    <p> <span className='text-xl font-serif'>Services Name</span>: {name}</p>
+                    <p> <span className='text-xl font-serif'>Price</span> :{price}</p>
                     {/* <p className=' w-3/4 mx-auto '> <span className='text-2xl font-serif'>{description}</span> Description:</p> */}
-                    <p className='overflow-hidden text-ellipsis max-h-16 w-80'><span className='text-2xl font-serif'>Description</span>:{description}</p>
+                    <p className='overflow-hidden text-ellipsis max-h-16 w-80'><span className='text-xl font-serif'>Description</span>:{description}</p>
                 </div>
                 <div className='flex gap-5'>
                     <button className='btn rounded-full  hover:bg-pink-400 hover:text-white' onClick={() => handlerDelete(_id)}><RiDeleteBin2Line /></button>

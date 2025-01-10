@@ -47,6 +47,7 @@ const Navbar = () => {
     const links = (
         <>
             <NavLink to={'/'}>Home</NavLink>
+           
             <NavLink to={'/allservices'}>All Services</NavLink>
             {user && (
                 <>
@@ -103,11 +104,13 @@ const Navbar = () => {
 
                 </>
             )}
+            
         </>
     );
 
     return (
-        <div className="navbar   backdrop-blur-lg  p-4 sticky z-10  top-0">
+        <div className={`navbar backdrop-blur-lg px-10 sticky z-10 top-0 ${theme === 'dark' ? 'bg-[#1D232A] text-white shadow-xl' : 'bg-[#dcc4ea] text-black'
+            }`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -181,7 +184,7 @@ const Navbar = () => {
                                 {user.displayName || 'User'}
                             </span>
                         </div>
-                        <button onClick={handleSignOut} className="btn btn-info btn-outline">
+                        <button onClick={handleSignOut} >
                             Logout
                         </button>
                     </div>

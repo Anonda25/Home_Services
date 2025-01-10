@@ -26,23 +26,24 @@ const BookedServices = () => {
             </div>
             {services.length > 0 ? (
                 <div>
-                    <div className="overflow-x-auto">
-                        <table className="table">
+                    <div className="overflow-x-auto rounded-md">
+                        <table className="table ">
                             {/* head */}
-                            <thead>
+                            <thead className='bg-[#dcc4ea]  text-black'>
                                 <tr>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Date</th>
                                     <th>Price</th>
-                                    <th>email</th>
-                                    <th>serviceStatus</th>
+                                    <th>Email</th>
+                                    <th>ServiceStatus</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 {
-                                    services.map(service => <tr key={service._id}>
-
+                                    services.map((service,ind) => <tr key={service._id}>
+                                        <td className="font-bold"> {ind + 1}</td>
                                         <td>
                                             <div className="flex items-center gap-3">
 

@@ -5,20 +5,20 @@ const ServicesCard = ({ service }) => {
     return (
         <div
             key={service._id}
-            className=" overflow-hidden shadow-xl mb-5 p-5 flex flex-col lg:flex-row justify-center   rounded-md   "
+            className=" overflow-hidden shadow-xl mb-5 p-5 flex flex-col  rounded-md   transition-transform duration-300 hover:scale-105 "
         >
-            <div className=' p-5  '>
+            <div className=' '>
                 {/* Service Image  here */}
                 <img
                     src={service?.photo}
                     alt={service.name}
-                    className=" transition-transform duration-300 ease-in-out hover:scale-90  w-full bg-cover h-[200px]  "
+                    className="  object-cover w-full bg-cover h-[200px]  "
                 />
             </div>
             {/* Service Details */}
-            <div className=" justify-center flex flex-col ">
+            <div className=" justify-center flex flex-col flex-grow">
                 <p className="text-xl font-bold mb-2 ">{service.name}</p>
-                <p className="text-gray-600 mb-4">
+                <p className=" mb-4 flex-grow">
                     {service.description.length > 100
                         ? `${service.description.substring(0, 100)}...`
                         : service.description}
@@ -52,3 +52,4 @@ const ServicesCard = ({ service }) => {
 };
 
 export default ServicesCard;
+

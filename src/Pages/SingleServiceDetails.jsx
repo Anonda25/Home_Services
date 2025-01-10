@@ -34,7 +34,7 @@ const SingleServiceDetails = () => {
             </div>
             {service ? (
                 <>
-                    <div className=" rounded-lg  p-2 overflow-hidden flex flex-col lg:flex-row items-center justify-center">
+                    <div className=" rounded-lg  p-2 overflow-hidden border bg-gray-200 flex flex-col lg:flex-row items-center justify-around">
                        <div className='p-5 '>
                             {/* Service Image */}
                             <img

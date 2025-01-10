@@ -27,7 +27,7 @@ const RequestCard = () => {
                     className="flex-1">
                     <div className="mb-6 ">
                         <h2 className="text-2xl font-bold">Request a Quote</h2>
-                        <p className="text-gray-600">
+                        <p className="">
                             If you would like to request any services, please contact us by filling out the form below.
                         </p>
                     </div>

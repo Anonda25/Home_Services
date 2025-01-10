@@ -51,11 +51,12 @@ const ServiceToDo = () => {
                 <DynamicTitle title={" my To Do Services"}></DynamicTitle>
             </div>
             {services.length > 0 ? (
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto rounded-md">
                     <table className="table">
                         {/* head */}
-                        <thead>
+                        <thead className='bg-[#dcc4ea]  text-black'>
                             <tr>
+                                <th>#</th>
                                 <th>Photo</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -66,7 +67,8 @@ const ServiceToDo = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                services.map(service => <tr key={service._id}>
+                                services.map((service,ind) => <tr key={service._id}>
+                                    <td className="font-bold">{ind + 1}</td>
                                     <td>
                                         <img src={service?.photo} alt="" className='w-10 h-10 rounded-full object-cover' />
                                     </td>
