@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServicesCard = ({ service }) => {
+    console.log(service);
     return (
         <div
             key={service._id}

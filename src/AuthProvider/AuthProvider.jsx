@@ -56,14 +56,14 @@ const AuthProvider = ({ children }) => {
 
             if (correntUser?.email) {
                 const user = { email: correntUser.email }
-                axios.post('https://assignment-11-server-site-two.vercel.app/jwt', user, { withCredentials: true })
+                axios.post('https://b10a11-server-side-anonda25.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
                         console.log('login token', res.data);
                         setLoading(false)
                     })
             } else {
 
-                axios.post('https://assignment-11-server-site-two.vercel.app/logout', {}, {
+                axios.post('https://b10a11-server-side-anonda25.vercel.app/logout', {}, {
                     withCredentials: true
                 })
                     .then(res => {
