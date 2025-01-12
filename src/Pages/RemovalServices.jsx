@@ -4,7 +4,6 @@ import img3 from '../../src/assets/protect.webp'
 import img4 from '../../src/assets/control.webp'
 import img5 from '../../src/assets/managment.webp'
 import img6 from '../../src/assets/doc.webp'
-import { div } from 'motion/react-client'
 import DynamicTitle from '../CommenPage/DynamicTitle'
 
 const RemovalServices = () => {
