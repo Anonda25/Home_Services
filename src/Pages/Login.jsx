@@ -90,7 +90,7 @@ const Login = () => {
                     <p >your are  Now user please <Link to={'/register'} className=" text-[#DC86D4] "> Register Now!
                     </Link>  </p>
                     
-                    <div className=" mt-6 flex justify-self-start gap-10">
+                    <div className=" mt-6 flex flex-col lg:flex-row justify-self-start lg:gap-10 gap-4">
                         <button className="btn   px-28 btn-outline btn-info py-4">Login</button>
                         <button onClick={handelGoogleLogin} className="btn   px-28 btn-outline btn-info py-4">Google LogIn</button>
                     </div>

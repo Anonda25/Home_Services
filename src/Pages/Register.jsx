@@ -93,7 +93,7 @@ const Register = () => {
                     </div>
                     <p >You are  Creacte a Account please <Link to={'/login'} className=" text-[#DC86D4] "> Login Now!
                                         </Link>  </p>
-                    <div className="flex gap-10 mt-6">
+                    <div className="flex lg:gap-10 gap-4 flex-col lg:flex-row  mt-6">
                         <button className="btn   px-28 btn-outline btn-info py-4">Register Now</button>
                         <button onClick={handelGoogleLogin} className="btn   px-28 btn-outline btn-info py-4">Google LogIn</button>
                     </div>
