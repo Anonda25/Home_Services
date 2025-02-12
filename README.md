@@ -49,7 +49,23 @@ THE HOME SERVICES
 - **Animations using Framer Motion.**
 - **Animations using Framer Motion.**
 
+ 
 
+8.**"dependencies":** {
+    **"aos": "^2.3.4"**,
+    **"axios": "^1.7.9"**,
+    **"firebase": "^11.1.0"**,
+    **"localforage": "^1.10.0"**,
+    **"match-sorter": "^8.0.0"**,
+    **"motion": "^11.15.0"**,
+    **"react": "^18.3.1"**,
+    **"react-dom": "^18.3.1"**,
+    **"react-icons": "^5.4.0"**,
+    **"react-router-dom": "^7.0.2"**,
+    **"sort-by": "^1.2.0"**,
+    **"sweetalert2": "^11.15.3"**,
+    **"swiper": "^11.1.15"**
+  },
 **Live Website**
 
  Home Service App Live : https://home-services1.netlify.app/
